@@ -18,11 +18,11 @@ class CreatePesertasTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('telephone');
-            $table->string('nim');
-            $table->string('telegram');
+            $table->string('nim')->unique();
+            $table->string('telegram')->nullable();
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->enum('status', ['daftar', 'lunas'])->default('daftar');
-            $table->integer('kelompok_id');
+            $table->integer('kelompok_id')->default(0);
             $table->timestamps();
         });
     }

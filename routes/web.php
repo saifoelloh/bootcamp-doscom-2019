@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Auth::routes();
@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
   'as' => 'peserta',
   'prefix' => 'peserta'
-], function() {
+], function () {
   Route::get('/', 'PesertaController@index');
   Route::post('/', 'PesertaController@store')->name('.store');
   Route::get('/{id}', 'PesertaController@show')->name('.show');
@@ -33,7 +33,7 @@ Route::group([
 Route::group([
   'as' => 'kelompok',
   'prefix' => 'kelompok'
-], function() {
+], function () {
   Route::get('/', 'KelompokController@index');
   Route::post('/', 'KelompokController@store')->name('.store');
   Route::get('/{id}', 'KelompokController@show')->name('.show');
@@ -42,12 +42,12 @@ Route::group([
 });
 
 Route::group([
-  'as' => 'peserta',
-  'prefix' => 'peserta'
-], function() {
-  Route::get('/', 'PesertaController@index');
-  Route::post('/', 'PesertaController@store')->name('.store');
-  Route::get('/{id}', 'PesertaController@show')->name('.show');
-  Route::put('/{id}', 'PesertaController@update')->name('.update');
-  Route::delete('/{id}', 'PesertaController@destroy')->name('.destroy');
+  'as' => 'admin',
+  'prefix' => 'admin'
+], function () {
+  Route::get('/', 'AdminController@index');
+  Route::post('/', 'AdminController@store')->name('.store');
+  Route::get('/{id}', 'AdminController@show')->name('.show');
+  Route::put('/{id}', 'AdminController@update')->name('.update');
+  Route::delete('/{id}', 'AdminController@destroy')->name('.destroy');
 });

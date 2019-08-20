@@ -15,6 +15,10 @@ class PesertaController extends Controller
     public function index()
     {
         //
+        $pesertas = Peserta::all();
+        return view('pages.peserta.index', [
+            'pesertas' => $pesertas
+        ]);
     }
 
     /**
@@ -35,7 +39,15 @@ class PesertaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nim' => 'required',
+            'nama' => 'required',
+            'email' => 'required',
+            'telephone' => 'required',
+            'gender' => 'required',
+        ]);
+        Peserta::create($validatedData);
+        return redirect('/')->with('message', 'Pendaftaran berhasil');
     }
 
     /**
@@ -80,6 +92,9 @@ class PesertaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $peserta = Peserta::findOrFail($id);
+        $peserta->delete();
+        return redirect('peserta');
+
     }
 }

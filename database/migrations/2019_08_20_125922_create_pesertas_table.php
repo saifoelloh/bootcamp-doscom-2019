@@ -22,6 +22,7 @@ class CreatePesertasTable extends Migration
             $table->string('telegram');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->enum('status', ['daftar', 'lunas'])->default('daftar');
+            $table->inte('kelompok_id');
             $table->timestamps();
         });
     }

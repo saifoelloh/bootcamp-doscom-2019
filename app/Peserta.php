@@ -15,4 +15,8 @@ class Peserta extends Model
     'gender',
     'status'
   ];
+
+  public function kelompok() {
+    return $this->belongsTo(Kelompok::class);
+  }
 }

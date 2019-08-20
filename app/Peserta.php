@@ -13,10 +13,12 @@ class Peserta extends Model
     'telephone',
     'telegram',
     'gender',
-    'status'
+    'status',
+    'kelompok_id'
   ];
 
-  public function kelompok() {
+  public function kelompok()
+  {
     return $this->belongsTo(Kelompok::class);
   }
 }

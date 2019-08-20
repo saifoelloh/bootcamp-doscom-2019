@@ -28,7 +28,7 @@ Route::group([
   Route::get('/{id}', 'PesertaController@show')->name('.show');
   Route::put('/{id}', 'PesertaController@update')->name('.update');
   Route::delete('/{id}', 'PesertaController@destroy')->name('.destroy');
-})
+});
 
 Route::group([
   'as' => 'kelompok',
@@ -39,7 +39,7 @@ Route::group([
   Route::get('/{id}', 'KelompokController@show')->name('.show');
   Route::put('/{id}', 'KelompokController@update')->name('.update');
   Route::delete('/{id}', 'KelompokController@destroy')->name('.destroy');
-})
+});
 
 Route::group([
   'as' => 'peserta',
@@ -50,4 +50,4 @@ Route::group([
   Route::get('/{id}', 'PesertaController@show')->name('.show');
   Route::put('/{id}', 'PesertaController@update')->name('.update');
   Route::delete('/{id}', 'PesertaController@destroy')->name('.destroy');
-})
+});

@@ -14,7 +14,8 @@ class KelompokController extends Controller
      */
     public function index()
     {
-        //
+        $kelompok = \App\Kelompok::all();
+        return view('pages.kelompok.index',['kelompok'=>$kelompok]);
     }
 
     /**
@@ -22,9 +23,10 @@ class KelompokController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // \App\Kelompok::create($request->all());
+        return view('pages.kelompok.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class KelompokController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $kelompok=\App\Kelompok::find()
+        // dd($request);
+        \App\Kelompok::create([
+            'nama' => $request->nama,
+            'pendamping' => $request->pendamping,
+        ]);
+        return redirect('kelompok');
     }
 
     /**
@@ -46,7 +54,8 @@ class KelompokController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelompok = \App\Kelompok::find($id);
+        return view('pages.kelompok.edit',['kelompok'=>$kelompok]);
     }
 
     /**
@@ -57,7 +66,8 @@ class KelompokController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $kelompok = \App\Kelompok::find($id);
+    
     }
 
     /**
@@ -69,7 +79,9 @@ class KelompokController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kelompok = \App\Kelompok::find($id);
+        $kelompok->update($request->all());
+        return redirect('kelompok');
     }
 
     /**
@@ -80,6 +92,8 @@ class KelompokController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelompok = \App\Kelompok::destroy($id);
+        // $kelompok->delete($kelompok);
+        return redirect('kelompok');
     }
 }

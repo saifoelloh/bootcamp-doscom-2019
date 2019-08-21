@@ -3,9 +3,9 @@
 
 @section('content_header')
 <div class="row">
-    <div class="col-md-6">
-        <h3>Peserta</h3>
-    </div>
+  <div class="col-md-6">
+    <h3>Peserta</h3>
+  </div>
 </div>
 @stop
 @section('content')
@@ -21,6 +21,7 @@
               <th class="text-center">Nama</th>
               <th class="text-center">Email</th>
               <th class="text-center">Status</th>
+              <th class="text-center">Kelompok</th>
               <th class="text-center">Actions</th>
             </tr>
           </thead>
@@ -55,11 +56,14 @@
           data: 'status'
         },
         {
+          data: 'kelompok_id'
+        },
+        {
           data: 'id',
           render: function(data) {
-            const link = "{{route('peserta')}}"+'/' ;
-            const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="' + link + 'detail/' + data +' ">detail</a>';
-            const hapus = '<form role="form" action="' + link +'delete/' + data + '" stlye="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete')}}<button class="btn btn-danger btn-xs">delete</button></form>';
+            const link = "{{route('peserta')}}"+"/"+data;
+            const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="' + link + ' ">edit</a>';
+            const hapus = '<form role="form" action="' + link + '" stlye="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete ')}}<button class="btn btn-danger btn-xs">delete</button></form>';
             return '<div class="text-center">' + detail + hapus + '</div>';
           }
         },

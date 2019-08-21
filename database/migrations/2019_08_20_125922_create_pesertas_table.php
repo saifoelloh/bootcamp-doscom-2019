@@ -18,7 +18,7 @@ class CreatePesertasTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('telephone');
-            $table->string('nim')->unique();
+            $table->string('nim');
             $table->string('telegram')->nullable();
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->enum('status', ['daftar', 'lunas'])->default('daftar');

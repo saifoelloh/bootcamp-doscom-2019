@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelompok;
 use App\Peserta;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,7 @@ class PesertaController extends Controller
      */
     public function index()
     {
-        //
-        $pesertas = Peserta::all();
+        $pesertas = Peserta::with('kelompok')->get();
         return view('pages.peserta.index', [
             'pesertas' => $pesertas
         ]);

@@ -49,6 +49,7 @@ Route::group([
 ], function () {
   Route::get('/', 'AdminController@index');
   Route::post('/', 'AdminController@store')->name('.store');
+  Route::get('/create', 'AdminController@create')->name('.create');
   Route::get('/{id}', 'AdminController@show')->name('.show');
   Route::put('/{id}', 'AdminController@update')->name('.update');
   Route::delete('/{id}', 'AdminController@destroy')->name('.destroy');

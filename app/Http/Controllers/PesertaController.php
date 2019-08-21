@@ -40,11 +40,12 @@ class PesertaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nim' => 'required',
+            'nim' => 'unique:pesertas|required',
             'nama' => 'required',
             'email' => 'required',
             'telephone' => 'required',
             'gender' => 'required',
+            'telegram' => 'nullable'
         ]);
         Peserta::create($validatedData);
         return redirect('/')->with('message', 'Pendaftaran berhasil');
@@ -58,7 +59,11 @@ class PesertaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pesertas = Peserta::find($id);
+        return view('pages.peserta.edit', [
+            'pesertas' => $pesertas,
+            'kelompoks' => \App\Kelompok::all()
+            ]);
     }
 
     /**
@@ -81,7 +86,9 @@ class PesertaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pesertas = Peserta::find($id);
+        $pesertas->update($request->all());
+        return redirect('peserta');
     }
 
     /**
@@ -92,9 +99,7 @@ class PesertaController extends Controller
      */
     public function destroy($id)
     {
-        $peserta = Peserta::findOrFail($id);
-        $peserta->delete();
+        $peserta = Peserta::destroy($id);
         return redirect('peserta');
-
     }
 }

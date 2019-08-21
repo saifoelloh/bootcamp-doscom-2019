@@ -56,7 +56,10 @@
           data: 'status'
         },
         {
-          data: 'kelompok_id'
+          data: 'kelompok',
+          render: function(data){
+            return data.nama;
+          }
         },
         {
           data: 'id',

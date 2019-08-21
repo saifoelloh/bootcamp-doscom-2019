@@ -44,13 +44,13 @@ Route::group([
 });
 
 Route::group([
-  'as' => 'peserta',
-  'prefix' => 'peserta'
+  'as' => 'admin',
+  'prefix' => 'admin'
 ], function() {
-  Route::get('/', 'PesertaController@index');
-  Route::post('/', 'PesertaController@store')->name('.store');
-  Route::get('/create', 'PesertaController@create')->name('.create');
-  Route::get('/{id}', 'PesertaController@show')->name('.show');
-  Route::put('/{id}', 'PesertaController@update')->name('.update');
-  Route::delete('/{id}', 'PesertaController@destroy')->name('.destroy');
+  Route::get('/', 'AdminController@index');
+  Route::post('/', 'AdminController@store')->name('.store');
+  Route::get('/create', 'AdminController@create')->name('.create');
+  Route::get('/{id}', 'AdminController@show')->name('.show');
+  Route::put('/{id}', 'AdminController@update')->name('.update');
+  Route::delete('/{id}', 'AdminController@destroy')->name('.destroy');
 });

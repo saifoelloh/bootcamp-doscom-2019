@@ -28,8 +28,7 @@ class DaftarEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('sekretariat@doscom.org')
-                    ->subject('Pendaftaran Bootcamp 2019')
+        return $this->subject('Pendaftaran Bootcamp 2019')
                     ->view('emailTemplate')
                     ->with([
                         'name' => $this->name

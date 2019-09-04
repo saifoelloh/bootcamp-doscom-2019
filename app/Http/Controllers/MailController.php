@@ -16,7 +16,7 @@ class MailController extends Controller
     public function index()
     {
         try {
-            Mail::to('ahmadhaqqi690@gmail.com')->send(new DaftarEmail('Ahmad'));
+            Mail::to('ahmadilham906@gmail.com')->send(new DaftarEmail('Ahmad'));
         } catch (Exception $e) {
             report($e);
             return false;

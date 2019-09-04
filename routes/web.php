@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/sendemail', 'MailController@index');
 Route::group([
   'as' => 'peserta',
   'prefix' => 'peserta'

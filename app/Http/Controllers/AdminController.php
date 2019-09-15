@@ -27,7 +27,6 @@ class AdminController extends Controller
     public function create(Request $request)
     {
         return view('pages.admin.create');
-        
     }
 
     /**
@@ -49,7 +48,6 @@ class AdminController extends Controller
 
         ]);
         return redirect('admin');
-            
     }
 
     /**
@@ -62,9 +60,6 @@ class AdminController extends Controller
     {
         $admin = \App\User::find($id);
         return view('pages.admin.edit',['admin'=>$admin]);
-    
-
-
     }
 
     /**
@@ -75,7 +70,6 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-
         $admin = \App\User::find($id);
         return view('pages.admin.edit',['admin' => $admin]);
     }

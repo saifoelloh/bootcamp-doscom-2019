@@ -4,6 +4,8 @@
 
 @section('title', 'Kelompok')
 
+
+
 @section('content_header')
 <div class="row">
     <div class="col-md-6">
@@ -11,7 +13,7 @@
     </div>
     <div class="col-md-6 text-right">
         <h3>
-            <a class="btn btn-info" href="{{route('kelompok')}}">
+            <a class="btn btn-info" href="{{route('kelompok.create')}}">
 
                 Tambah Kelompok
             </a>
@@ -29,7 +31,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
-                                <th class="text-center">Nama</th>
+                                <th class="text-center">Nama Kelompok</th>
                                 <th class="text-center">Pendamping</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -47,8 +49,9 @@
 
 @section('js')
     <script>
+        // console.log({!! $kelompok !!})
         $(document).ready(function () {
-            $(',data-table').dataTable([
+            $('.data-table').dataTable({
                 data: {!! $kelompok !!},
                 columns: [
                     {data: 'id'},
@@ -57,14 +60,14 @@
                     {
                         data: 'id',
                         render: function(data){
-                            const link ="{{route('kelompok')}}";
+                            const link ="{{route('kelompok')}}"+"/"+data;
                             const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="'+link+'">edit</a>';
-                            const hapus = '<form role="form" action="'+link+'" stlye="margin: 0 3px;display:inline" method="POST">@method("DELETE")@csrf<button class="btn btn-danger btn-xs">delete</button></form>';
+                            const hapus = '<form role="form" action="'+link+'" stlye="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete')}}<button class="btn btn-danger btn-xs">delete</button></form>';
                             return '<div class="text-center">'+detail+hapus+'</div>';
                         }
                     },
-                ]
-            ]);
+                ],
+            });
         });
     </script>
 @stop

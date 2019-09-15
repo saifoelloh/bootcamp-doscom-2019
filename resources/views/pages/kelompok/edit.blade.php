@@ -27,15 +27,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('kelompok.update')}}" method="post">
+                        <form action="{{ route('kelompok.update', $kelompok->id) }}" method="post">
                         {{ csrf_field() }}
+                        {{ method_field('put') }}
                         <div class="form-group">
                             <label for="namaKelompok">Nama Kelompok</label>
-                            <input type="text" class="form-control" name="nama" value="blankon" placeholder="nama kelompok">
+                            <input type="text" class="form-control" name="nama" value="{{$kelompok->nama}}" placeholder="nama kelompok" autofocus>
                         </div>
                         <div class="form-group">
                             <label for="namaPendamping">Nama Pendamping</label>
-                            <input type="text" class="form-control" name="pendamping" value="saipul" placeholder="nama pendamping">
+                            <input type="text" class="form-control" name="pendamping" value="{{$kelompok->pendamping}}" placeholder="nama pendamping">
                         </div>
                         <button type="submit" class="btn btn-info">submit</button>
                         </form>
@@ -45,6 +46,7 @@
         </div>
     </div>
 @stop
+
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">

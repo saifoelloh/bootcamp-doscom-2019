@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -13,7 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.index');
+        $dataUser = \App\User::all();
+        return view('pages.admin.index', ['dataUser' => $dataUser]);
     }
 
     /**
@@ -21,9 +24,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('pages.admin.create');
     }
 
     /**
@@ -34,7 +37,17 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // var_dump($request);
+       // \App\User::create($request->all());
+        //return redirect('admin/create')->with('success', 'Selamat data admin berhasil disimpan');
+       
+        \App\User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+
+        ]);
+        return redirect('admin');
     }
 
     /**
@@ -45,7 +58,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $admin = \App\User::find($id);
+        return view('pages.admin.edit',['admin'=>$admin]);
     }
 
     /**
@@ -56,7 +70,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $admin = \App\User::find($id);
+        return view('pages.admin.edit',['admin' => $admin]);
     }
 
     /**
@@ -68,7 +83,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = \App\User::find($id);
+        $admin->update($request->all());
+        return redirect('admin');
     }
 
     /**
@@ -79,6 +96,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admin = \App\User::find($id);
+        $admin->delete();
+        return redirect('admin');
     }
 }

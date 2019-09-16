@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="@csrf">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- externalCSS -->
-    <link rel="stylesheet" href="/public/css/home_style.css">
+    <link rel="stylesheet" href="{{ assets('css/home_style.css') }}">
     <!-- FontAwsome -->
-    <link rel="stylesheet" href="/resources/assets/fontawesome-free-5.9.0-web/css/all.min.css" type="text/css"> <!--Font Awsome-->
+    <link rel="stylesheet" href="{{ assets('fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
 
     <title>Bootcamp Doscom 2019</title>
   </head>
@@ -210,30 +213,31 @@
           <div class="container h-100">
               <div class="row justify-content-center h-100 align-content-center">
                 <div class="col-md-5">
-                    <form class="mb-5 mt-2">
+                    <form class="mb-5 mt-2" action="{{route('peserta.store')}}" method="post">
+                        @csrf
                             <div class="form-group col-md-11">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nim">
+                            <input type="text" class="form-control" name="nim" id="nim" placeholder="Nim" required>
                             </div>
                             <div class="form-group col-md-11">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nama">
+                            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
                             </div>
                             <div class="form-group col-md-11">
-                                <select class="form-control" placeholder="Jenis Kelamin">
+                                <select class="form-control" name="gender" id="gender" placeholder="Jenis Kelamin" required>
                                     <option value="1">Laki-Laki</option>
                                     <option value="2">Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-11">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                             </div>
                             <div class="form-group col-md-11">
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="No.tlp (WA)">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="No.tlp (WA)" required>
                             </div>
                             <div class="form-group col-md-11">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ID telegram">
+                            <input type="text" class="form-control" name="telegram" id="telegram" placeholder="ID telegram">
                             </div>
                             <div class="row">
-                                <div class="col-md-6 text-center text-light mt-3">Kuota tersisa 0/40</div>
+                                <div class="col-md-6 text-center text-light mt-3">Kuota tersisa {{sizeof($users)}}/40</div>
                                 <div class="col-md-5 ">
                                     <input type="submit" value="Daftar" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">
                                 </div>

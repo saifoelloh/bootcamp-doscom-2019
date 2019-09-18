@@ -40,8 +40,12 @@
   $(document).ready(function() {
     $('.data-table').dataTable({
       data: {!! $pesertas !!},
-      columns: [{
-          data: 'id'
+      columns: [
+        {
+          data: 'id',
+          render: function(data) {
+            return arguments[3].row += 1;
+          },
         },
         {
           data: 'nim'
@@ -58,7 +62,7 @@
         {
           data: 'kelompok',
           render: function(data){
-            return data.nama;
+            return data===null ? '' : data.name;
           }
         },
         {
@@ -66,7 +70,7 @@
           render: function(data) {
             const link = "{{route('peserta')}}"+"/"+data;
             const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="' + link + ' ">edit</a>';
-            const hapus = '<form role="form" action="' + link + '" stlye="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete ')}}<button class="btn btn-danger btn-xs">delete</button></form>';
+            const hapus = '<form role="form" action="' + link + '" style="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete ')}}<button class="btn btn-danger btn-xs">delete</button></form>';
             return '<div class="text-center">' + detail + hapus + '</div>';
           }
         },

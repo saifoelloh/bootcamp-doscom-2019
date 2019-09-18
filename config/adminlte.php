@@ -15,7 +15,7 @@ return [
 
     'title' => 'Bootcamp DOSCOM 2019',
 
-    'title_prefix' => '',
+    'title_prefix' => 'Bootcamp | ',
 
     'title_postfix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Bootcamp</b>DOSCOM',
+    'logo' => '<b>DOSCOM</b> Bootcamp',
 
-    'logo_mini' => '<b>D</b>19',
+    'logo_mini' => '<b>B</b>19',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,16 +108,19 @@ return [
 
     'menu' => [
         [
-          'text'  => 'peserta',
+          'text'  => 'PESERTA',
           'url'   => 'peserta',
+          'icon'  => 'fas fa-users',
         ],
         [
-          'text'  => 'kelompok',
+          'text'  => 'KELOMPOk',
           'url'   => 'kelompok',
+          'icon'  => 'fas fa-tags',
         ],
         [
-          'text'  => 'admin',
+          'text'  => 'ADMIN',
           'url'   => 'admin',
+          'icon'  => 'fas fa-user-secret'
         ]
     ],
 

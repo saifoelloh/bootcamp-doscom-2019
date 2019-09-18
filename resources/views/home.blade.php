@@ -13,7 +13,7 @@
     <!-- externalCSS -->
     <link rel="stylesheet" href="{{ asset('css/home_style.css') }}">
     <!-- FontAwsome -->
-    <link rel="stylesheet" href="{{ asset('fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
 
     <title>Bootcamp Doscom 2019</title>
   </head>

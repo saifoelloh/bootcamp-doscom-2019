@@ -13,16 +13,16 @@
   <div class="box-body">
     <div class="row">
       <div class="col-md-12">
-        <table class="data-table table table-bordered table-hover">
+        <table class="data-table table table-bordered table-hover text-center">
           <thead>
             <tr>
-              <th class="text-center">No</th>
-              <th class="text-center">NIM</th>
-              <th class="text-center">Nama</th>
-              <th class="text-center">Email</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Kelompok</th>
-              <th class="text-center">Actions</th>
+              <th>No</th>
+              <th>NIM</th>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Kelompok</th>
+              <th>Actions</th>
             </tr>
           </thead>
         </table>

@@ -4,23 +4,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{csrf_token()}}">
+    <input name="whatever" id="id" onfocus="window.location.href='#id'; return true;"/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- externalCSS -->
     <link rel="stylesheet" href="{{ asset('css/home_style.css') }}">
     <!-- FontAwsome -->
-    <link rel="stylesheet" href="{{ asset('fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
 
     <title>Bootcamp Doscom 2019</title>
   </head>
   <body>
     <div class="purple-dark">
-      <div class="navigasi container">
-        <nav class="navbar navbar-expand-lg" id="navmenu">
+      <div class="navigasi fixed-top purple-dark">
+        <nav class="navbar navbar-expand-lg container" id="navmenu">
           <a class="navbar-brand text-light scroll-page" href="#"><h1>Bootcamp</h1></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,7 +61,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6" id="hide-gambar">
+            <div class="col-md-6 hide-gambar">
               <img class="mx-auto d-block" src="http://duncanlock.net/images/posts/better-figures-images-plugin-for-pelican/dummy-200x200.png" alt="">
             </div>
           </div>
@@ -71,13 +69,13 @@
       </div>
     </div>
     <!-- Bootcamp itu apa? -->
-    <div class="Tentang fullscreen py-1" id="tentang-acara">
+    <div class="Tentang fullscreen pb-5" id="tentang-acara">
       <div class="container h-100">
-        <div class="row h-100 align-content-center">
+        <div class="row h-100 align-content-center mt-5">
           <div class="col-md-6">
             <div class="apa-itu-bootcamp mx-3 mt-5" id="apa-itu-bootcamp">
               <h1>Apa itu Bootcamp?</h1>
-              <p class="my-5 text-justify" id="gsr">
+              <p class="mt-5 mb-3" id="gsr">
                 Bootcamp adalah suatu kegiatan yang bertujuan untuk memperkenalkan DOSCOM
                 kepada mahasiswa baru dan mempererat rasa kekeluargaan seluruh anggota.
                 <div id="dokumentasi"><a href="#" style="color:#9b21d3">Lihat dokumentasi kegiatan bootcamp <i class="fas fa-arrow-right"></i></a></div>
@@ -87,34 +85,27 @@
           <div class="col-md-6 mt-5">
             <div class="benefit">
               <ul class="list-unstyled">
-                @php
-                  $list = [
-                    [
-                      'img' => 'ilmu-icon.png',
-                      'title' => 'Ilmu yang bermanfaat',
-                      'text' => 'Menyebarkan & membagikan ilmu merupakan hal yang seru.',
-                    ],
-                    [
-                      'img' => 'teman-icon.png',
-                      'title' => 'Teman-teman baru',
-                      'text' => 'Banyak teman yang asyik dan menyenangkan menunggumu.',
-                    ],
-                    [
-                      'img' => 'game-icon.png',
-                      'title' => 'Kegiatan seru & games',
-                      'text' => 'Kegiatan sharing dibungkus dalam games akan sangat menyenangkan.',
-                    ],
-                  ];
-                @endphp
-                @foreach ($list as $event)
-                  <li class="media">
-                    <img class="mr-3" src="{{ asset('img/'.$event['img']) }}" alt="Generic placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0 my-2 my">{{$event['title']}}</h5>
-                      {{$event['text']}}
-                    </div>
-                  </li>
-                @endforeach
+                <li class="media gambar-benefit">
+                  <img class="mr-3" src="{{ asset('img/ilmu-icon.png') }}" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <h5 class="mt-0 my-2 my">Ilmu yang bermanfaat</h5>
+                    <p>Menyebarkan & membagikan ilmu merupakan hal yang seru.</p>
+                  </div>
+                </li>
+                <li class="media my-4 gambar-benefit">
+                  <img class="mr-3" src="{{ asset('img/teman-icon.png') }}" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <h5 class="mt-0 my-2">Teman-teman baru</h5>
+                    <p>Banyak teman yang asyik dan menyenangkan menunggumu.</p>
+                  </div>
+                </li>
+                <li class="media gambar-benefit">
+                  <img class="mr-3" src="{{ asset('img/game-icon.png') }}" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <h5 class="mt-0 my-2">Kegiatan seru & games</h5>
+                    <p>Kegiatan sharing dibungkus dalam games akan sangat menyenangkan.</p>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -122,11 +113,11 @@
       </div>
     </div>
     <!-- Galeri bootcamp -->
-    <div class="Galeri fullscreen pt-5" id="galeri">
+    <div class="Galeri pt-4 pb-2" id="galeri" style="height: 105vh">
       <div class="container text-center h-100 align-content-center">
         <span class="text-center text-light">
           <h1 class="pt-5">Galeri kegiatan</h1>
-          <p class="my-4">Dokumentasi kegiatan selama bootcamp dari tahun ke tahun.</p>
+          <p class="my-4"style="font-size:110%">Dokumentasi kegiatan selama bootcamp dari tahun ke tahun.</p>
         </span>
         <div class="list-gambar my-5">
           <div class="row">
@@ -144,17 +135,17 @@
     </div>
     <!-- Biaya dan etc -->
     <div class="Biaya-dan-lainya fullscreen" id="waktu-biaya">
-      <div class="container h-100">
-        <div class="row h-100 align-content-center">
-          <div class="col-md-6 my-5">
-            <div id="info-regis" class="mx-3">
+      <div class="container h-100 mb-5">
+        <div class="row h-100 align-content-center pb-5">
+          <div class="col-md-6 mt-5 pt-5">
+            <div class="mx-3 info-regis">
               <h1>
-                Berapa biaya <br> Registrasinya?
+                Berapa biaya Registrasinya?
               </h1>
-              <p class="my-4">Untuk harga tiketnya adalah Rp.70000
-                include fasilitas disamping dan hanya tersedia untuk 40 orang pendaftar.</p>
+              <p class="mt-4 mb-2">Untuk harga tiketnya adalah Rp.70000
+                include fasilitas disamping dan hanya tersedia untuk 30 orang pendaftar.</p>
               <span>
-                <a href="#" style="color:#9b21d3">Daftar sekarang <i class="fas fa-arrow-right"></i></a>
+                <a href="#" style="color:#9b21d3">Daftar sekarang <i class="fas fa-arrow-right mb-5"></i></a>
               </span>
             </div>
           </div>
@@ -163,40 +154,40 @@
               @php
                 $list = [
                   [
-                    'img' => 'waktu-icon.png',
+                    'img' => 'img/waktu-icon.png',
                     'title' => 'Waktu',
-                    'text' => 'Kegiatan akan diadakan 12-13 Sepetember 2019'
+                    'text' => 'Kegiatan akan diadakan 12-13 Sepetember 2019',
                   ],
                   [
-                    'img' => 'tempat-icon.png',
+                    'img' => 'img/tempat-icon.png',
                     'title' => 'Tempat',
-                    'text' => 'Duren, Bandungan Kab.Semarang, Jawa Tengah'
+                    'text' => 'Duren, Bandungan Kab.Semarang, Jawa Tengah',
                   ],
                   [
-                    'img' => 'teman-odd-icon.png',
+                    'img' => 'img/teman-odd-icon.png',
                     'title' => 'Teman',
-                    'text' => 'Banyak teman baru dalam kegiatan'
+                    'text' => 'Banyak teman baru dalam kegiatan',
                   ],
                   [
-                    'img' => 'penginapan-icon.png',
+                    'img' => 'img/penginapan-icon.png',
                     'title' => 'Penginapan',
-                    'text' => 'Vila Gloria, Bandungan, Kab.Semarang'
+                    'text' => 'Vila Gloria, Bandungan, Kab.Semarang',
                   ],
                   [
-                    'img' => 'game-odd-icon.png',
+                    'img' => 'img/game-odd-icon.png',
                     'title' => 'Games',
-                    'text' => 'Banyak games menarik dan seru dalam kegiatan.'
+                    'text' => 'Banyak games menarik dan seru dalam kegiatab.',
                   ],
                   [
-                    'img' => 'ilmu-odd-icon.png',
+                    'img' => 'img/ilmu-odd-icon.png',
                     'title' => 'Ilmu',
-                    'text' => 'Banyak ilmu yang bermanfaat untuk digali lebih dalam'
+                    'text' => 'Banyak ilmu yang bermanfaat untuk digali lebih dalam',
                   ],
                 ];
               @endphp
               @foreach ($list as $event)
                 <div class="col-6 col-sm-4 col-md-4 py-2 px-2 list-acara" id="list-acara">
-                  <img class=" mx-auto d-block " src="{{asset('img/'.$event['img'])}}" alt="">
+                  <img class=" mx-auto d-block " src="{{asset($event['img'])}}" alt="">
                   <h5 class="text-center">{{$event['title']}}</h5>
                   <p class="text-center">{{$event['text']}}</p>
                 </div>
@@ -208,45 +199,13 @@
     </div>
     </div>
     <!-- Daftar -->
-    <div class="Daftar fullscreen py-1" id="daftar">
+    <div class="Daftar fullscreen pt-5" id="daftar">
       <div class="container h-100">
         <div class="row justify-content-center h-100 align-content-center">
-          <div class="col-md-5">
-            <form class="mb-5 mt-2" method="post" action="{{route('peserta.store')}}">
-            {{csrf_field()}}
-              <div class="form-group col-md-11">
-                <input type="text" class="form-control" name="nim" id="nim" placeholder="Nim" required>
-              </div>
-              <div class="form-group col-md-11">
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
-              </div>
-              <div class="form-group col-md-11">
-                <select class="form-control" name="gender" id="gender" placeholder="Jenis Kelamin" required>
-                  <option value="1">Laki-Laki</option>
-                  <option value="2">Perempuan</option>
-                </select>
-              </div>
-              <div class="form-group col-md-11">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-              </div>
-              <div class="form-group col-md-11">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="No.tlp (WA)" required>
-              </div>
-              <div class="form-group col-md-11">
-                <input type="text" class="form-control" name="telegram" id="telegram" placeholder="ID telegram">
-              </div>
-              <div class="row">
-                <div class="col-md-6 text-center text-light mt-3">Kuota tersisa {{$users}}/40</div>
-                <div class="col-md-5 ">
-                  <input type="submit" value="Daftar" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-6 justify-content-center mx-3 text-light">
+          <div class="col-md-6 justify-content-center mx-3 text-light mb-5">
             <div class="daftar-sekarang">
               <h1>Daftar Sekarang</h2>
-              <p class="my-4 text-justify">
+              <p class="my-4">
                 Lengkapi formulir disamping kemudian lakukan pembayaran di basecamp
                 DOSCOM (gd.D lantai 1, samping kantin) atau stand pendaftaran bootcamp (gd.H lantai 1)
               </p>
@@ -258,10 +217,41 @@
                 <p>
                   <h4>Contact Person :</h4>
                   Wildan : 085877267639 ( WA ) - @ywild ( telegram ) <br>
-                  Tenesia : 081325612792 ( WA ) - @tenesiaaa ( telegram )
+                  Tenesia : 08223448639 ( WA ) - @tenesiaaa ( telegram )
                 </p>
               </div>
             </div>
+          </div>
+          <div class="col-md-5">
+            <form class="mb-5 mt-2">
+              <div class="form-group col-md-11 list-from">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nim">
+              </div>
+              <div class="form-group col-md-11 list-from">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nama">
+              </div>
+              <div class="form-group col-md-11 list-from">
+                <select class="form-control" placeholder="Jenis Kelamin">
+                  <option value="1">Laki-Laki</option>
+                  <option value="2">Perempuan</option>
+                </select>
+              </div>
+              <div class="form-group col-md-11 list-from">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+              </div>
+              <div class="form-group col-md-11 list-from">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="No.tlp (WA)">
+              </div>
+              <div class="form-group col-md-11 list-from">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ID telegram">
+              </div>
+              <div class="row">
+                <div class="col-md-6 text-center text-light mt-3 list-from">Kuota tersisa {{$visitors}}/30</div>
+                <div class="col-md-5 list-from">
+                  <input type="submit" value="Daftar" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -283,6 +273,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- external JS -->
-    <script src="{{asset('js/home_js.js')}}"></script>
+    <script type="text/javascript">
+      var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1; //&& ua.indexOf("mobile");
+      if(isAndroid) {
+        document.write('<meta name="viewport" content="width=device-width,height='+window.innerHeight+', initial-scale=1.0">');
+      }
+    </script> 
+    <script src="{{ asset('js/home_js.js')}}"></script>
   </body>
 </html>

@@ -13,7 +13,7 @@
     <!-- externalCSS -->
     <link rel="stylesheet" href="{{ asset('css/home_style.css') }}">
     <!-- FontAwsome -->
-    <link rel="stylesheet" href="{{ asset('fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.9.0-web/css/all.min.css') }}" type="text/css"> <!--Font Awsome-->
 
     <title>Bootcamp Doscom 2019</title>
   </head>
@@ -108,7 +108,7 @@
                 @endphp
                 @foreach ($list as $event)
                   <li class="media">
-                    <img class="mr-3" src="{{ asset('img/'.$event['img']) }}" alt="Generic placeholder image">
+                    <img class="mr-3" src="{{ asset('img/icons/'.$event['img']) }}" alt="Generic placeholder image">
                     <div class="media-body">
                       <h5 class="mt-0 my-2 my">{{$event['title']}}</h5>
                       {{$event['text']}}
@@ -132,7 +132,7 @@
           <div class="row">
             @for ($i=0;$i<8;$i++)
               <div class="col-6 col-sm-6  col-md-3  my-2">
-                <img class="img-thumbnail hover-gmbr" src="{{asset('img/game-odd-icon.png')}}" alt="">
+                <img class="img-thumbnail hover-gmbr" src="{{asset('img/icons/game-odd-icon.png')}}" alt="">
               </div>
             @endfor
           </div>
@@ -196,7 +196,7 @@
               @endphp
               @foreach ($list as $event)
                 <div class="col-6 col-sm-4 col-md-4 py-2 px-2 list-acara" id="list-acara">
-                  <img class=" mx-auto d-block " src="{{asset('img/'.$event['img'])}}" alt="">
+                  <img class=" mx-auto d-block " src="{{asset('img/icons/'.$event['img'])}}" alt="">
                   <h5 class="text-center">{{$event['title']}}</h5>
                   <p class="text-center">{{$event['text']}}</p>
                 </div>

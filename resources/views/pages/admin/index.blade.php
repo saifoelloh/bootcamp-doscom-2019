@@ -17,63 +17,19 @@
     </div>
 </div>
 @stop
-{{-- 
-@section('content')
-<div class="box-body box box-danger">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Email</th>
-      <th scope="col">Password</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button class="btn btn-warning mr-3">Edit</button> <button class="btn btn-danger">Hapus</button></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<div class="Pagination_halaman">
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active">
-      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
-</div>
-@stop --}} 
- 
 
 @section('content')
     <div class="box box-danger">
         <div class="box-body">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="data-table table table-bordered table-hover">
+                    <table class="data-table table table-bordered table-hover text-center">
                         <thead>
                             <tr>
-                                {{-- <th class="text-center">No</th> --}}
-                                <th class="text-center">Nama</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Password</th>
-                                <th class="text-center">Aksi</th>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -95,16 +51,21 @@
             $('.data-table').dataTable({
                 data: {!! $dataUser!!},
                 columns: [
+                    {
+                      data: 'id',
+                      render: function(data) {
+                        return arguments[3].row+=1;
+                      },
+                    },
                     {data: 'name'},
                     {data: 'email'},
-                    {data: 'password'},
                     {
                         data: 'id',
                         render: function(data){
                             const link ="{{route('admin')}}"+"/"+data;
-                            const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="'+link+'">edit</a>';
-                            const hapus = '<form role="form" action="'+link+'" stlye="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete')}}<button class="btn btn-danger btn-xs">delete</button></form>';
-                            return '<div class="text-center">'+detail+hapus+'</div>';
+                            const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="' + link + ' ">edit</a>';
+                            const hapus = '<form role="form" action="' + link + '" style="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete ')}}<button class="btn btn-danger btn-xs">delete</button></form>';
+                            return '<div>' + detail + hapus + '</div>';
                         }
                     },
                 ],

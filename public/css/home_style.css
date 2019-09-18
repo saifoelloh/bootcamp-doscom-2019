@@ -31,6 +31,7 @@ body {background-color: white;background-position: center center;}
 body{
 	line-height: 1.5em;
 	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+	height: 100%;
 }
 .full-screen{
 	height: 100vh;
@@ -97,6 +98,24 @@ body{
 .full-screen{
 	height: 100vh;
 }
+.doscom{
+	opacity: 0;
+	transform: translate(-50px,0);
+	transition: 1.3s;
+}
+.doscom-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
+.hide-gambar{
+	opacity: 0;
+	transform: translate(0,-40px);
+	transition: 1s;
+}
+.muncul-gambar{
+	opacity: 1;
+	transform: translate(0,0);
+}
 .Galeri{
     background-color: #9b21d3;
 }
@@ -114,8 +133,26 @@ body{
 #btn-daftar>p{
     font-size: 20px;
 }
+.apa-itu-bootcamp{
+	opacity: 0;
+	transform: translate(-60px,0);
+	transition: 1s;
+}
+.bootcamp-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
 .apa-itu-bootcamp >  p{
     line-height: 2em;
+}
+.gambar-benefit{
+	opacity: 0;
+	transform: translate(0,-60px);
+	transition: 1s;
+}
+.benefit-muncul{
+	opacity: 1;
+	transform: translate(0,0);
 }
 .Biaya-dan-lainya{
     background: #f5f7fa;
@@ -129,9 +166,27 @@ body{
 .acara{
     font-size: 80%;
 }
+.hover-gmbr{
+	opacity: 0;
+	transition: 0.6s;
+	transform: translate(0,-40px);
+}
+.muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
+.info-regis{
+	opacity: 0;
+	transform: translate(-60px,0);
+	transition: 1.5s;
+}
+.regis-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
 .hover-gmbr:hover{
     cursor: pointer;
-    opacity: 0.7;	
+	opacity: 0.7;
 }
 #list-acara{
     border: 1.3px solid #dfe1e3;
@@ -139,12 +194,37 @@ body{
 #list-acara> img{
     width: 100px;
 }
-
+.list-acara{
+	opacity: 0;
+	transform: translate(0,-50px);
+	transition: 1s;
+}
+.list-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
 .list-acara:hover{
     cursor: pointer;
     box-shadow: 0px 20px 40px #888888; 
 }
-
+.daftar-sekarang{
+	opacity: 0;
+	transform: translate(-60px,0);
+	transition: 1s;
+}
+.daftar-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
+.list-from{
+	opacity: 0;
+	transform: translate(0,-60px);
+	transition: 1s;
+}
+.form-muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
 #telegram{
 	color : rgb(85, 235, 255);
 }

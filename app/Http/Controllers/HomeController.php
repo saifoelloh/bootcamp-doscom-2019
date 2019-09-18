@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $users = Peserta::all()->count();
 
-        return view('home', [
+        return view('welcome', [
           'users' => $users,
         ]);
     }

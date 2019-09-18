@@ -108,7 +108,7 @@
                 @endphp
                 @foreach ($list as $event)
                   <li class="media">
-                    <img class="mr-3" src="{{ asset('img/icons'.$event['img']) }}" alt="Generic placeholder image">
+                    <img class="mr-3" src="{{ asset('img/icons/'.$event['img']) }}" alt="Generic placeholder image">
                     <div class="media-body">
                       <h5 class="mt-0 my-2 my">{{$event['title']}}</h5>
                       {{$event['text']}}
@@ -196,7 +196,7 @@
               @endphp
               @foreach ($list as $event)
                 <div class="col-6 col-sm-4 col-md-4 py-2 px-2 list-acara" id="list-acara">
-                  <img class=" mx-auto d-block " src="{{asset('img/icons'.$event['img'])}}" alt="">
+                  <img class=" mx-auto d-block " src="{{asset('img/icons/'.$event['img'])}}" alt="">
                   <h5 class="text-center">{{$event['title']}}</h5>
                   <p class="text-center">{{$event['text']}}</p>
                 </div>

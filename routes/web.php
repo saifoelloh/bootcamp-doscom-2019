@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/',function() {
+  $visitors = \App\Peserta::all()->count();
+  return view('welcome', ['visitors' => $visitors]);
+});
 
 Auth::routes();
 

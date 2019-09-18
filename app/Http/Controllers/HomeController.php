@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Peserta;
+use App\User;
+use App\Kelompok;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,10 +25,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = Peserta::all()->count();
+      $items = [
+        'peserta' => [
+          'title' => 'Peserta',
+          'value' => Peserta::all()->count(),
+        ],
+        'admin' => [
+          'title' => 'Admin',
+          'value' => User::all()->count(),
+        ],
+        'kelompok' => [
+          'title' => 'Kelompok',
+          'value' => Kelompok::all()->count(),
+        ],
+      ];
 
-        return view('welcome', [
-          'users' => $users,
+        return view('home', [
+          'items' => $items,
         ]);
     }
 }

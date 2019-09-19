@@ -62,7 +62,7 @@
         {
           data: 'kelompok',
           render: function(data){
-            return data===null ? '' : data.name;
+            return data!==null ? data.nama : 'none';
           }
         },
         {

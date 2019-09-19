@@ -12,7 +12,7 @@
 */
 
 Route::get('/',function() {
-  $visitors = \App\Peserta::all()->count();
+  $visitors = \App\Peserta::where('status', 'lunas')->get()->count();
   return view('welcome', ['visitors' => $visitors]);
 });
 

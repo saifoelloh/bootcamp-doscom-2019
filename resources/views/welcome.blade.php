@@ -38,8 +38,12 @@
                 <a class="nav-link text-light px-4 mb-3 mr-5 btn-one scroll-page mt-3" href="#kontak">Kontak</a>
               </li>
             </ul>
-            <span class="text-light mr-3 py-1 px-4 " id="btn-masuk">Masuk</span>
-            <span class="text-light py-1 px-4" id="btn-daftar">Daftar</span>
+            <span class="text-light mr-3 py-1 px-4 " id="btn-masuk">
+              <a href="#tentang-acara" class="text-white">Masuk</a>
+            </span>
+            <span class="text-light py-1 px-4" id="btn-daftar">
+              <a href="#daftar" class="text-white">Daftar</a>
+            </span>
           </div>
         </nav>
       </div>
@@ -57,7 +61,7 @@
                   Suatu acara yang bertujuan untuk memperkenalkan DOSCOM dan mempererat rasa kekeluargaan seluruh anggota.
                 </p>
                 <div class="btn text-light mt-4 py-1 px-5" id="btn-daftar">
-                  <p>Daftar</p>
+                  <a href="#daftar" class="text-white">Daftar</a>
                 </div>
               </div>
             </div>
@@ -78,7 +82,9 @@
               <p class="mt-5 mb-3" id="gsr">
                 Bootcamp adalah suatu kegiatan yang bertujuan untuk memperkenalkan DOSCOM
                 kepada mahasiswa baru dan mempererat rasa kekeluargaan seluruh anggota.
-                <div id="dokumentasi"><a href="#" style="color:#9b21d3">Lihat dokumentasi kegiatan bootcamp <i class="fas fa-arrow-right"></i></a></div>
+                <div id="dokumentasi">
+                  <a href="#galeri" style="color:#9b21d3">Lihat dokumentasi kegiatan bootcamp <i class="fas fa-arrow-right"></i></a>
+                </div>
               </p>
             </div>
           </div>
@@ -86,21 +92,21 @@
             <div class="benefit">
               <ul class="list-unstyled">
                 <li class="media gambar-benefit">
-                  <img class="mr-3" src="{{ asset('img/ilmu-icon.png') }}" alt="Generic placeholder image">
+                  <img class="mr-3" src="{{ asset('img/ilmu-odd-icon.png') }}" alt="Generic placeholder image">
                   <div class="media-body">
                     <h5 class="mt-0 my-2 my">Ilmu yang bermanfaat</h5>
                     <p>Menyebarkan & membagikan ilmu merupakan hal yang seru.</p>
                   </div>
                 </li>
                 <li class="media my-4 gambar-benefit">
-                  <img class="mr-3" src="{{ asset('img/teman-icon.png') }}" alt="Generic placeholder image">
+                  <img class="mr-3" src="{{ asset('img/teman-odd-icon.png') }}" alt="Generic placeholder image">
                   <div class="media-body">
                     <h5 class="mt-0 my-2">Teman-teman baru</h5>
                     <p>Banyak teman yang asyik dan menyenangkan menunggumu.</p>
                   </div>
                 </li>
                 <li class="media gambar-benefit">
-                  <img class="mr-3" src="{{ asset('img/game-icon.png') }}" alt="Generic placeholder image">
+                  <img class="mr-3" src="{{ asset('img/game-odd-icon.png') }}" alt="Generic placeholder image">
                   <div class="media-body">
                     <h5 class="mt-0 my-2">Kegiatan seru & games</h5>
                     <p>Kegiatan sharing dibungkus dalam games akan sangat menyenangkan.</p>
@@ -145,7 +151,7 @@
               <p class="mt-4 mb-2">Untuk harga tiketnya adalah Rp.70000
                 include fasilitas disamping dan hanya tersedia untuk 30 orang pendaftar.</p>
               <span>
-                <a href="#" style="color:#9b21d3">Daftar sekarang <i class="fas fa-arrow-right mb-5"></i></a>
+                <a href="#daftar" style="color:#9b21d3">Daftar sekarang <i class="fas fa-arrow-right mb-5"></i></a>
               </span>
             </div>
           </div>
@@ -164,7 +170,7 @@
                     'text' => 'Duren, Bandungan Kab.Semarang, Jawa Tengah',
                   ],
                   [
-                    'img' => 'img/teman-odd-icon.png',
+                    'img' => 'img/teman-icon.png',
                     'title' => 'Teman',
                     'text' => 'Banyak teman baru dalam kegiatan',
                   ],
@@ -174,12 +180,12 @@
                     'text' => 'Vila Gloria, Bandungan, Kab.Semarang',
                   ],
                   [
-                    'img' => 'img/game-odd-icon.png',
+                    'img' => 'img/game-icon.png',
                     'title' => 'Games',
                     'text' => 'Banyak games menarik dan seru dalam kegiatab.',
                   ],
                   [
-                    'img' => 'img/ilmu-odd-icon.png',
+                    'img' => 'img/ilmu-icon.png',
                     'title' => 'Ilmu',
                     'text' => 'Banyak ilmu yang bermanfaat untuk digali lebih dalam',
                   ],
@@ -223,32 +229,33 @@
             </div>
           </div>
           <div class="col-md-5">
-            <form class="mb-5 mt-2">
+            <form class="mb-5 mt-2" method="post" action="{{route('peserta.store')}}">
+              {{csrf_field()}}
               <div class="form-group col-md-11 list-from">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nim">
+                <input type="text" class="form-control" name="nim" id="formGroupExampleInput2" placeholder="Nim">
               </div>
               <div class="form-group col-md-11 list-from">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nama">
+                <input type="text" class="form-control" name="nama" id="formGroupExampleInput2" placeholder="Nama">
               </div>
               <div class="form-group col-md-11 list-from">
-                <select class="form-control" placeholder="Jenis Kelamin">
+                <select class="form-control" name="gender" placeholder="Jenis Kelamin">
                   <option value="1">Laki-Laki</option>
                   <option value="2">Perempuan</option>
                 </select>
               </div>
               <div class="form-group col-md-11 list-from">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+                <input type="email" class="form-control" name="email" id="formGroupExampleInput2" placeholder="Email">
               </div>
               <div class="form-group col-md-11 list-from">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="No.tlp (WA)">
+                <input type="text" class="form-control" name="telephone" id="formGroupExampleInput" placeholder="No.tlp (WA)">
               </div>
               <div class="form-group col-md-11 list-from">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ID telegram">
+                <input type="text" class="form-control" name="telegram" id="formGroupExampleInput2" placeholder="ID telegram">
               </div>
               <div class="row">
-                <div class="col-md-6 text-center text-light mt-3 list-from">Kuota tersisa {{$visitors}}/30</div>
+                <div class="col-md-6 text-center text-light mt-3 list-from">Kuota tersisa {{30-$visitors}}</div>
                 <div class="col-md-5 list-from">
-                  <input type="submit" value="Daftar" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">
+                  <button type="submit" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">Submit</button>
                 </div>
               </div>
             </form>

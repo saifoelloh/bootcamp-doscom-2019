@@ -251,7 +251,7 @@
             </div>
           </div>
           <div class="col-md-5">
-            <form class="mb-5 mt-2" method="post" action="{{route('peserta.store')}}">
+            <form class="mb-5 mt-2" method="post" action="{{route('peserta.store')}}" {{$visitors==30 ? 'disabled' : ''}}>
               {{csrf_field()}}
               <div class="form-group col-md-11 list-from">
                 <input type="text" class="form-control" name="nim" id="formGroupExampleInput2" placeholder="Nim">

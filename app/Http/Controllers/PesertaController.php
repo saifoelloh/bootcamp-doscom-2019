@@ -51,7 +51,7 @@ class PesertaController extends Controller
           Peserta::create($validatedData);
           return redirect('')->with([
             'success' => true,
-            'message' => 'Welcome to the jungle'
+            'message' => 'Selamat anda sudah terdaftar untuk mengikuti Bootcamp 2019'
           ]);
         } catch (Exception $e) {
           return redirect('')->with([

@@ -13,10 +13,10 @@ class MailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($email, $name)
     {
         try {
-            Mail::to('ahmadilham906@gmail.com')->send(new DaftarEmail('Ahmad'));
+            Mail::to($email)->send(new DaftarEmail($name));
         } catch (Exception $e) {
             report($e);
             return false;

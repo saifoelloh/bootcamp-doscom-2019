@@ -69,9 +69,11 @@
           data: 'id',
           render: function(data) {
             const link = "{{route('peserta')}}"+"/"+data;
+            const status = arguments[2].status==="lunas" ? 'disabled' : '';
+            const verif = '<form action="'+link+'/verify" style="margin: 0 3px;display: inline;" method="post">{{csrf_field()}}{{method_field('put')}}<button class="btn btn-success btn-xs" '+status+'>verify</button></form>'
             const detail = '<a class="btn btn-primary btn-xs" stlye="margin: 0 3px" href="' + link + ' ">edit</a>';
             const hapus = '<form role="form" action="' + link + '" style="margin: 0 3px;display:inline" method="POST">{{ csrf_field()}}{{method_field('delete ')}}<button class="btn btn-danger btn-xs">delete</button></form>';
-            return '<div class="text-center">' + detail + hapus + '</div>';
+            return '<div class="text-center">' + verif + detail + hapus + '</div>';
           }
         },
       ]

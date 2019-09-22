@@ -40,15 +40,25 @@ class PesertaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nim' => 'unique:pesertas|required',
-            'nama' => 'required',
-            'email' => 'required',
-            'telephone' => 'required',
-            'gender' => 'required',
-            'telegram' => 'nullable'
+          'nim' => 'required|unique:pesertas|max:15',
+          'nama' => 'required',
+          'email' => 'required',
+          'telephone' => 'required',
+          'gender' => 'required',
+          'telegram' => 'nullable'
         ]);
-        Peserta::create($validatedData);
-        return redirect('/')->with('message', 'Pendaftaran berhasil');
+        try {
+          Peserta::create($validatedData);
+          return redirect('')->with([
+            'success' => true,
+            'message' => 'Welcome to the jungle'
+          ]);
+        } catch (Exception $e) {
+          return redirect('')->with([
+            'success' => false,
+            'message' => $e
+          ]);
+        }
     }
 
     /**
@@ -102,4 +112,22 @@ class PesertaController extends Controller
         $peserta = Peserta::destroy($id);
         return redirect('peserta');
     }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     */
+    public function verify($id)
+    {
+      try {
+        $peserta = Peserta::where('id', $id)->update([
+          'status' => 'lunas'
+        ]);
+        return redirect('peserta')->with('message', 'sukes');
+      } catch (Exception $e) {
+        return redirect('peserta')->with('message', 'error invernal server error');
+      }
+    }
+    
 }

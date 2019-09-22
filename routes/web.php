@@ -14,21 +14,23 @@
 Route::get('/',function() {
   $visitors = \App\Peserta::where('status', 'lunas')->get()->count();
   return view('welcome', ['visitors' => $visitors]);
-});
+})->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('peserta', 'PesertaController@store')->name('peserta.store');
 Route::get('/sendemail', 'MailController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
   'as' => 'peserta',
-  'prefix' => 'peserta'
+  'prefix' => 'peserta',
+  'middleware' => 'auth:web',
 ], function () {
   Route::get('/', 'PesertaController@index');
-  Route::post('/', 'PesertaController@store')->name('.store');
   Route::get('/create', 'PesertaController@create')->name('.create');
   Route::get('/{id}', 'PesertaController@show')->name('.show');
   Route::put('/{id}', 'PesertaController@update')->name('.update');
+  Route::put('/{id}/verify', 'PesertaController@verify')->name('.verify');
   Route::delete('/{id}', 'PesertaController@destroy')->name('.destroy');
 });
 

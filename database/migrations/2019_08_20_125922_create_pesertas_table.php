@@ -15,10 +15,10 @@ class CreatePesertasTable extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nim')->unique();
             $table->string('nama');
             $table->string('email');
             $table->string('telephone');
-            $table->string('nim');
             $table->string('telegram')->nullable();
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->enum('status', ['daftar', 'lunas'])->default('daftar');

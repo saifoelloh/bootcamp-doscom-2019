@@ -51,6 +51,28 @@
       <div class="intro text-light fullscreen" id="intro">
         <div class="container h-100">
           <div class="row h-100 align-content-center">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-4">
+                  @if (session()->get('success'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{session()->get('message')}}
+                    </div>
+                  @elseif ($errors->has('nim'))
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{$errors->first('nim')}}
+                    </div>
+                  @else
+                  @endif
+                </div>
+              </div>
+            </div>
             <div class="col-md-6 ">
               <div class="doscom mx-3">
                 <p class="font-weight-bold">
@@ -255,7 +277,7 @@
               <div class="row">
                 <div class="col-md-6 text-center text-light mt-3 list-from">Kuota tersisa {{30-$visitors}}</div>
                 <div class="col-md-5 list-from">
-                  <button type="submit" class="px-5 py-2 my-2 mx-auto d-block" id="btn-daftar">Submit</button>
+                  <button type="submit" class="px-5 py-2 my-2 mx-auto d-block text-white" id="btn-daftar">Submit</button>
                 </div>
               </div>
             </form>

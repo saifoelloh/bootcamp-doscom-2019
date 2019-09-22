@@ -18,7 +18,7 @@ Route::get('/',function() {
 
 Auth::routes();
 
-Route::post('peserta', 'PesertaController@store')->name('peserta.store');
+Route::post('/peserta', 'PesertaController@store')->name('peserta.store');
 Route::get('/sendemail', 'MailController@index');
 Route::group([
   'middleware' => 'auth:web'

@@ -1,6 +1,23 @@
+$('.page-scroll').on('click', function(e) {
+
+    var tujuan = $(this).attr('href');
+   
+    var elemenTujuan = $(tujuan);
+   
+    $('html , body').animate({
+     scrollTop: elemenTujuan.offset().top - 50
+    },1300,'easeInOutExpo');
+   
+    e.preventDefault();
+   });
+
 //Mobile
 if(window.innerWidth<=730){
     // tambahan durung fix go mobile
+    $('.samping').each(()=>{
+        $('.samping').removeClass('px-4');
+    });
+    $('.doscom').addClass('mt-5');
     document.querySelectorAll('h1').forEach((i)=>{
         i.style.fontSize="180%";
     })
@@ -10,6 +27,7 @@ if(window.innerWidth<=730){
     document.querySelectorAll('.daftar-sekarang p').forEach(p => {
         p.style.fontSize="80%";
     });
+    $('#navmenu').addClass('pb-4');
     document.getElementById('rata-tengah').style.fontSize="80%";
     document.getElementById('dokumentasi').style.textAlign="center";
     document.getElementById('intro').classList.add('mt-5');
@@ -22,7 +40,7 @@ if(window.innerWidth<=730){
         full.style.minHeight="150vh";
     })
     document.getElementById('intro').style.minHeight="100vh";
-    document.getElementById('galeri').style.minHeight="175vh";
+    document.getElementById('galeri').style.minHeight="145vh";
     document.getElementById('waktu-biaya').style.minHeight="160vh";
     document.getElementById('tentang-acara').style.minHeight="120vh";
     document.getElementById('daftar').style.minHeight="160vh";
@@ -35,10 +53,15 @@ if(window.innerWidth<=730){
     document.getElementById('grid1').classList.add('col-6','text-center');
     document.getElementById('grid2').classList.add('col-6','text-center');
     document.getElementById('grid3').classList.add('col-md-12','text-center');
-
+    $('.info-harga').removeClass('mr-5');
+    $('.doscom').appendTo('.keygambar');
+    $('.keygambar').appendTo('.key-text');
+    $('.nav-logo').css('width','190%');
     $(window).on('load',()=>{
-        $('.doscom').addClass('doscom-muncul');
-        document.getElementById('hide-gambar').style.display="none";
+        $('.ilu-gmbr').addClass('muncul-gambar');
+        setTimeout(()=>{
+            $('.doscom').addClass('doscom-muncul');
+        },1300)
     })
     
     $(window).scroll(()=>{
@@ -77,12 +100,15 @@ if(window.innerWidth<=730){
     })  
 }
 //Dekstop
-$(window).on('load',()=>{
-    $('.doscom').addClass('doscom-muncul');
-    setTimeout(()=>{
-        $('.hide-gambar').addClass('muncul-gambar');
-    },1000)
-})
+if(window.innerWidth>730){
+    $(window).on('load',()=>{
+        $('.doscom').addClass('doscom-muncul');
+        setTimeout(()=>{
+            $('.hide-gambar').addClass('muncul-gambar');
+            $('.ilu-gmbr').removeClass('ilu-gmbr');
+        },1000)
+    })
+}
 
 $(window).scroll(()=>{
     var wScroll=$(this).scrollTop();

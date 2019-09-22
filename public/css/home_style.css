@@ -107,7 +107,7 @@ body{
 	opacity: 1;
 	transform: translate(0,0);
 }
-.hide-gambar{
+.hide-gambar,.ilu-gmbr{
 	opacity: 0;
 	transform: translate(0,-40px);
 	transition: 1s;
@@ -230,4 +230,24 @@ body{
 }
 .go-to{
 	color: #9b21d3;
+}
+/* navbar button togler */
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+.bg-iconnav {
+  background: #f0323d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f0323d 0%, #e6366c 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f0323d 0%, #e6366c 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f0323d 0%, #e6366c 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0323d', endColorstr='#e6366c', GradientType=0);
+  /* IE6-9 */
+  border-radius: 0;
+  padding: 10px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

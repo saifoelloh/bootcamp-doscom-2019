@@ -49,9 +49,10 @@ class PesertaController extends Controller
         ]);
         try {
           Peserta::create($validatedData);
+          app()->call('App\Http\Controllers\MailController@index', [$request->email, $request->nama]);
           return redirect('')->with([
             'success' => true,
-            'message' => 'Welcome to the jungle'
+            'message' => 'Selamat anda sudah terdaftar untuk mengikuti Bootcamp 2019'
           ]);
         } catch (Exception $e) {
           return redirect('')->with([

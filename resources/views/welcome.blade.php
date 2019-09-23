@@ -29,17 +29,17 @@
                 <a class="nav-link text-light btn-one page-scroll mt-3" href="#tentang-acara">Tentang Acara</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light px-4 btn-one page-scroll mt-3 samping" href="#waktu-biaya">Waktu</a>
+                <a class="nav-link text-light px-4 btn-one page-scroll mt-3 samping" href="#galeri">Galeri</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light px-4 btn-one page-scroll mt-3 samping" href="#waktu-biaya">Biaya</a>
+                <a class="nav-link text-light px-4 btn-one page-scroll mt-3 samping" href="#waktu-biaya">Detail</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light px-4 mb-3 mr-5 btn-one page-scroll mt-3 samping" href="#kontak">Kontak</a>
               </li>
             </ul>
-            <span class="text-light mr-3 py-1 px-4 " id="btn-masuk">Masuk</span>
-            <span class="text-light py-1 px-4" id="btn-daftar">Daftar</span>
+            <a href="#tentang-acara" class="text-light mr-3 py-1 px-4" id="btn-masuk">Masuk</a>
+            <a href="#daftar" class="text-light mr-3 py-1 px-4" id="btn-daftar">Daftar</a>
           </div>
         </nav>
       </div>
@@ -314,7 +314,7 @@
       }
     </script> 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="{{asset('js/jquery_swing.js')}}"></script>
+    <script src="{{asset('js/jquery-swing.js')}}"></script>
     <script src="{{asset('js/home_js.js')}}"></script>
   </body>
 </html>

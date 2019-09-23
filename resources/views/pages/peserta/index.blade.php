@@ -17,9 +17,9 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>NIM</th>
               <th>Nama</th>
               <th>Email</th>
+              <th>Gender</th>
               <th>Status</th>
               <th>Kelompok</th>
               <th>Actions</th>
@@ -48,13 +48,13 @@
           },
         },
         {
-          data: 'nim'
-        },
-        {
           data: 'nama'
         },
         {
           data: 'email'
+        },
+        {
+          data: 'gender',
         },
         {
           data: 'status'

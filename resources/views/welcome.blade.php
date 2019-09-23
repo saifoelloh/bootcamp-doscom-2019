@@ -259,7 +259,7 @@
                 <p>
                   <h4>Contact Person :</h4>
                   Wildan : 085877267639 ( WA ) - @ywild ( telegram ) <br>
-                  Tenesia : 08223448639 ( WA ) - @tenesiaaa ( telegram )
+                  Tenesia : 081325612792 ( WA ) - @tenesiaaa ( telegram )
                 </p>
               </div>
             </div>

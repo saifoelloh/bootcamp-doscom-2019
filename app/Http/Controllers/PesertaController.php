@@ -59,7 +59,7 @@ class PesertaController extends Controller
           app()->call('App\Http\Controllers\MailController@index', [$request->email, $request->nama]);
           return redirect('')->with([
             'success' => true,
-            'message' => 'Selamat anda sudah terdaftar untuk mengikuti Bootcamp 2019'
+            'message' => 'Selamat, Bootcamp 2019 berhasil, silahkan cek email kamu'
           ]);
         } catch (Exception $e) {
           return redirect('')->with([
@@ -132,6 +132,8 @@ class PesertaController extends Controller
         $peserta = Peserta::where('id', $id)->update([
           'status' => 'lunas'
         ]);
+        $getOne = Peserta::where('id', $id)->first();
+        app()->call('App\Http\Controllers\MailController@sendEmailConfirmation', [$getOne->email, $getOne->nama]);
         return redirect('peserta')->with('message', 'sukes');
       } catch (Exception $e) {
         return redirect('peserta')->with('message', 'error invernal server error');

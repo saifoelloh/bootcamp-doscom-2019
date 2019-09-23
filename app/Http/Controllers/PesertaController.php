@@ -52,7 +52,7 @@ class PesertaController extends Controller
           app()->call('App\Http\Controllers\MailController@index', [$request->email, $request->nama]);
           return redirect('')->with([
             'success' => true,
-            'message' => 'Selamat anda sudah terdaftar untuk mengikuti Bootcamp 2019'
+            'message' => 'Selamat, Bootcamp 2019 berhasil, silahkan cek email kamu'
           ]);
         } catch (Exception $e) {
           return redirect('')->with([

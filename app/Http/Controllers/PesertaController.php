@@ -39,6 +39,13 @@ class PesertaController extends Controller
      */
     public function store(Request $request)
     {
+        $val = Peserta::where('status', 'lunas')->get()->count();
+        if ($val>=30) {
+           return redirect('')->with([
+            'success' => true,
+            'message' => 'Maaf kuota sudah penuh'
+          ]);
+        }
         $validatedData = $request->validate([
           'nim' => 'required|unique:pesertas|max:15',
           'nama' => 'required',

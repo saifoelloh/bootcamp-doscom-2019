@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\DaftarEmail;
+use App\Mail\ConfirmationEmail;
 use Mail;
 
 class MailController extends Controller
@@ -29,9 +30,15 @@ class MailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function sendEmailConfirmation($email, $name)
     {
-        //
+        try {
+            Mail::to($email)->send(new ConfirmationEmail($name));
+        } catch (Exception $e) {
+            report($e);
+            return false;
+        }
+        return "Email terkirim";
     }
 
     /**

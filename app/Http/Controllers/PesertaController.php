@@ -125,6 +125,7 @@ class PesertaController extends Controller
         $peserta = Peserta::where('id', $id)->update([
           'status' => 'lunas'
         ]);
+        app()->call('App\Http\Controllers\MailController@sendEmailConfirmation', [$request->email, $request->nama]);
         return redirect('peserta')->with('message', 'sukes');
       } catch (Exception $e) {
         return redirect('peserta')->with('message', 'error invernal server error');
